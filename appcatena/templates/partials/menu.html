@@ -1,8 +1,11 @@
 {% load static%}
 <div class="modal-body">
     <ul class="list-group list-group-flush">
-        {% for chave,valor in titulo_link_menu.items%}
-            <li class="list-group-item"><a href="{% url 'mba'%}" class="text-decoration-none text-dark">{{valor}}</a></li>
+        {% if titulo_link_menu %}
+        {% for link in titulo_link_menu%}
+            <li class="list-group-item"><a href="{% url 'mba'%}" class="text-decoration-none text-dark">{{link.name}}</a></li>
         {% endfor%}
+        {% else %}
+        {% endif %}
     </ul>
 </div>
